@@ -4,9 +4,12 @@ This application monitors IoEvents from the Iolog and reports their Input States
 It starts by delclaring 4 Global variables: 
 
 Iolog iolog = new Iolog:                        Creates an instance of the Iolog, where we can grab IoEvents that occurred on the JNIOR.
+
 AUXSerialPort serialPort = new AUXSerialPort:   Creates an instance of the AUX Port object that we can use to send serial commands out the AUX Port.
+
 Long refreshTime = 0:                           This Long gets set to the most recent IoEvent's timestamp pulled from the Iolog. This is used in iolog.refresh(Long)
                                                 to pull only recent IoEvents, else we'd be checking every IoEvent from the Iolog everytime.
+                                                
 String lastKnownStates:                         This string is populated with what we build with the stringBuilder variable. This is what gets sent out the AUX Port.
 
 This application first uses a constructor that will call the other functions used in this application. This constructor also is used to open the AUX Port for sending out data.
